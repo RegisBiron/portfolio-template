@@ -1,0 +1,149 @@
+@import "variables-mixins";
+@import "default";
+
+#project-menu.active{
+	left: 0em;	
+}
+
+.page-wrap.active {
+	position: fixed;
+	right: -14em;
+	left: 14em;
+	@include breakpoint(ipad-horiz){
+		right: -22.75em;
+		left: 22.75em;
+	}
+}
+
+footer.active {
+	position: fixed;
+	right: -14em;
+	left: 14em;
+	bottom: 0;
+	@include breakpoint(ipad-horiz){
+		right: -22.75em;
+		left: 22.75em;
+	}
+}
+
+#menu{
+	background: #FFF;
+}
+
+footer{
+	background: #FFF;
+}
+
+#menu.active {
+	position: fixed;
+	right: -14em;
+	left: 14em;
+	@include breakpoint(ipad-horiz){
+		right: -22.75em;
+		left: 22.75em;
+	}
+}
+
+#menu #title a:before{
+	background: 0!important;
+}
+
+html.no-touch{
+	.projects{
+		a{
+			.project-tile .project-info{
+				-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+			}
+			&:hover{
+				.project-tile .project-info{
+					-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+					display: block;
+					background-color: $purple;
+				}
+			}
+		}
+	}
+	#project-menu li a{
+		.project-info{
+			-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+		}
+		&:hover{
+			.project-info{
+				-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+				background-color: $purple;
+			}
+		}
+	}	
+}
+
+.next-project .preview-next{
+	right: -460px!important;
+}
+
+html.hover-next-project .next-project .preview-next{
+	right: 60px!important;
+}
+
+.previous-project .preview-previous{
+	left: -460px!important;
+}
+
+html.hover-previous-project .previous-project .preview-previous{
+	left: 60px!important;
+}
+
+.previous{
+	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+}
+
+.bars.active{
+	background: $purple!important;
+	&:before{
+		top: 0.3em!important;
+	}
+	&:after{
+		top: -0.3em!important;
+	}
+}
+	
+.phone-vert.half{
+	@include breakpoint(ipad-horiz){
+		float: right;
+	}
+}
+
+.tablet-vert.half{
+	@include breakpoint(ipad-horiz){
+		float: left;
+	}
+}
+
+.tablet-vert.white, .tablet-horiz.white, .phone-vert.white{
+	background: #FFF;
+}
+
+#ie{
+	position: fixed;
+	top:0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+	background-color: $purple;
+	z-index: 100;
+	padding: 1em;
+	strong{
+		color: #FFF;
+		font: 700 1em/1 $main-font;
+		text-transform: lowercase;
+	}
+	p{
+		color: #FFFFFF;
+		background: 0;
+	}
+	a{
+		color: #FFF;
+		border-bottom: 1px solid #FFF;
+	}
+}

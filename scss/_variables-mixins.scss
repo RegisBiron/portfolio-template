@@ -1,0 +1,50 @@
+$purple: #6a1be2;
+$charcoal: #292929;
+$gray: #e5e5e5;
+$main-font: 'proxima-nova-alt', Helvetica, Arial, sans-serif;
+
+@import "compass/css3";
+@import "compass/css3/transform";
+@import "ceaser-easing";
+
+@mixin single-transition($property: $default-transition-property, $duration: $default-transition-duration, $function: $default-transition-function) {
+  @include transition(compact($property $duration $function)); }
+
+@mixin image-2x($image, $width, $height) {
+  @media (min--moz-device-pixel-ratio: 1.3),
+         (-o-min-device-pixel-ratio: 2.6/2),
+         (-webkit-min-device-pixel-ratio: 1.3),
+         (min-device-pixel-ratio: 1.3),
+         (min-resolution: 1.3dppx) {
+    /* on retina, use image that's scaled by 2 */
+    background-image: url($image);
+    background-size: $width $height;
+  }
+}
+
+@mixin breakpoint($point) {
+ @if $point == desktop-large {
+    @media (min-width: 90em) { @content; } /* 1440/16 */
+  }
+  @if $point == desktop {
+    @media (min-width: 80em) { @content; } /* 1280/16 */
+  }
+  @else if $point == laptop {
+    @media (min-width: 68.75em) { @content; } /* 1100/16 */
+  }
+  @else if $point == ipad-horiz {
+    @media (min-width: 64em)  { @content; } /* 1024/16 */
+  }
+  @else if $point == ipad-vert {
+    @media (min-width: 48em)  { @content; } /* 768/16 */
+  }
+  @else if $point == small-tablet {
+    @media (min-width: 37.5em)  { @content; } /* 600/16 */
+  }
+  @else if $point == iphone-horiz {
+    @media (min-width: 30em)  { @content; } /* 480/16 */
+  }
+  @else if $point == iphone-vert {
+    @media (min-width: 20em)  { @content; } /* 320/16 */
+  }
+}

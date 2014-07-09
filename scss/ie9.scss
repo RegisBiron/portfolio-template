@@ -1,0 +1,17 @@
+@import "variables-mixins";
+@import "default";
+
+.phone-vert.half{
+	@include breakpoint(ipad-horiz){
+		float: right;
+	}
+}
+
+.tablet-vert.half{
+	@include breakpoint(ipad-horiz){
+		float: left;
+	}
+}
+
+
+

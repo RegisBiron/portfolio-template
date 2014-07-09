@@ -1,0 +1,289 @@
+body {
+	background: #FFFFFF;
+	font-family: 'proxima-nova', sans-serif;
+	font-weight: 400;
+	font-size: 16px;
+	color: $purple;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-moz-text-size-adjust: none;
+	-webkit-text-size-adjust: none;
+	-ms-text-size-adjust: none;
+	overflow-x: hidden;
+}
+
+a{
+	text-decoration: none;
+	@include transition(compact(color .4s ease));
+	&:hover{
+		color: $charcoal;
+		@include transition(compact(color .4s ease));
+	}
+}
+
+a:focus, a:active {
+	border: 0;
+	outline : 0;
+}
+
+.link-wrap{
+	-ms-word-break: break-all;
+	word-break: break-all;
+	word-break: break-word;
+	-webkit-hyphens: auto;
+	-moz-hyphens: auto;
+	hyphens: auto;
+}
+
+h1{
+	font: 700 2.25em/1 $main-font;
+	color: $purple;
+	text-align: center;
+	margin: 0;
+	@include breakpoint(small-tablet){
+		font-size: 3.25em;
+	}
+	@include breakpoint(ipad-horiz){
+		font-size: 4em;
+	}
+}
+
+p{
+	font: 600 1.125em/1.4em $main-font;
+	color: $charcoal;
+	margin: 0;
+	padding: 0;
+}
+
+strong{
+	font: 700 1.125em/1em $main-font;
+	color: $purple;
+	text-transform: uppercase;
+	margin: 0;
+	padding: 0;
+	@include breakpoint(ipad-horiz){
+		font-size: 1.15em;
+	}
+}
+
+img{
+	width: 100%;
+	display: block;
+	height: auto;
+	image-rendering: optimizeQuality;
+}
+
+i{
+	display: inline-block;
+	font-family: FontAwesome;
+	font-style: normal;
+	font-weight: normal;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+html.progress{
+	cursor: progress!important;
+	a{
+		cursor: progress!important;
+	}
+}
+
+html.overflow{
+	overflow: hidden;
+	body{
+		overflow: hidden;
+	}
+	.page-wrap, .container, .content{
+		overflow:hidden;
+	}
+}
+
+html.fixed{
+	h1, h2, h3, p, a, img, i, strong{
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+	}
+	#project-menu{
+		z-index: 100;
+	}
+	.projects a, .project-page a, .info-image h3 a, .info-page a{
+		cursor: default;
+	}
+	.project-page a:hover, .info-page a:hover{
+		color: $charcoal;
+		border-color: $charcoal;
+	}
+	.projects a:hover{
+			.project-tile .project-info{
+				opacity: 0;
+				@include transition(compact(opacity .4s ease));
+			}
+		}
+		.load-container{
+			opacity: 0.55;
+			@include transition(compact(opacity .4s .2s ease));
+		}
+}
+
+html.hover-next-project, html.hover-previous-project,{
+	.content{
+		opacity: 0.5;
+		 @include transition(compact(opacity .5s ease));
+	}
+}
+
+.load-container{
+	@include transition(compact(opacity .4s .2s ease));
+}
+
+.page-wrap{
+	width: 100%;
+	@include translate(0, 0);
+    @include transition(compact(all .4s ceaser($easeOutQuint)));
+}
+
+.page-wrap.active, header.active, footer.active, .next.active{
+	@include translate(14em, 0);
+	@include breakpoint(ipad-horiz){
+		@include translate(22.375em, 0);
+	}
+}
+
+.previous.active{
+	cursor: default;
+	@include transform (rotate(-180deg) translate(-14em, 0));
+	@include breakpoint(ipad-horiz){
+		@include transform (rotate(-180deg) translate(-22.375em, 0));
+	}
+}
+
+.container{
+	background: #FFF;
+	padding: 4em 1.25em 0 1.25em;
+	@include breakpoint(small-tablet){
+		padding: 4em 2.5em 0 2.5em;
+	}
+	@include breakpoint(ipad-horiz){
+		padding: 4em 3.75em 1.875em 3.75em;
+	}
+}
+
+.content{
+	background: $purple;
+	 @include transition(compact(opacity .5s ease));
+}
+
+.projects{
+	position: relative;
+	@include breakpoint(ipad-vert){
+		float: left;
+	}
+}
+
+.two-thirds{
+width: 100%;
+	@include breakpoint(ipad-vert){
+		width: 59.40%;
+	}
+}
+
+.one-third{
+	width: 100%;
+	@include breakpoint(ipad-vert){
+		width: 40.60%;
+	}
+}
+
+.half-item{
+	width: 100%;
+	position: relative;
+	@include breakpoint(ipad-vert){
+		width: 50%;
+		float: left;
+	}
+}
+
+.front-page.background{
+	background-color: $gray;
+}
+
+html.no-touch{
+	.projects{
+		a{
+			.project-tile .project-info{
+				@include transition(all .4s ceaser($easeInOutCirc));
+			}
+			&:hover{
+				.project-tile .project-info{
+					opacity: 1;
+					display: block;
+					 @include transition(all .4s ceaser($easeInOutCirc));
+				}
+			}
+		}
+	}
+}
+
+html.fixed.no-touch{
+	.projects{
+		a{
+			&:hover{
+				.project-tile .project-info{
+					opacity: 0;
+				}
+			}
+		}
+	}
+}
+
+.projects a:hover .project-tile .project-info{
+	display: none;
+}
+
+.project-tile{
+	position: relative;
+}
+
+.project-info{
+		background-color: rgba(106,27,226,0.9);
+		width: 100%;
+		height: auto;
+		opacity: 0;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		@include transition(compact(opacity .4s ease));
+		.project-description{
+			padding: 2em;
+			@include breakpoint(laptop){
+				padding: 3.125em;
+			}
+			h2{
+				font: 700 1.5em/1 $main-font;
+				-webkit-font-smoothing: subpixel-antialiased;
+				color: #FFF;
+				margin: 0;
+				@include breakpoint(laptop){
+					font-size: 2.25em;
+				}
+			}
+			.project-type{
+				font: 600 1em/1 $main-font;
+				-webkit-font-smoothing: subpixel-antialiased;
+				color: #FFF;
+				text-transform: uppercase;
+				display: block;
+				margin: 0.5em 0;
+				@include breakpoint(laptop){
+					font-size: 1.25em;
+					margin: 0.75em 0;
+				}
+			}
+		}
+	}

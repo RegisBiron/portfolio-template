@@ -1,0 +1,374 @@
+#menu{
+	position: fixed;
+	background: rgba(255, 255, 255, 0.95);
+	width: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 10;
+	@include transition(compact(all .4s ceaser($easeOutQuint)));
+	#title{
+	text-align: center;
+		a{
+			font: 700 1.75em/1 $main-font;
+			color: $purple;
+			text-decoration: none;
+			&:before{
+					content: "";
+					background: url('http://localhost/regis-wp/wp-content/uploads/loader-2x-42x42.gif') transparent no-repeat;
+					opacity: 0;
+					@include transition(compact(all .4s ease));
+					width: 21px;
+					height: 21px;
+					background-size: 21px 21px;
+					position: absolute;
+					margin-left: -28px;
+					margin-top: 3px;
+					@include breakpoint(small-tablet){
+						margin-top: 4px;
+						margin-left: -30px;
+					}
+				}
+			&.loading{
+				&:before{
+				opacity: 1;
+				@include transition(compact(all .4s ease));
+				}
+			}
+			@include breakpoint(small-tablet){
+				font-size: 2em;
+			}
+		}
+		span {
+			@include transition(compact(width .2s ease));
+			font-size: 0.4em;
+			text-transform: uppercase;
+			@include breakpoint(ipad-horiz){
+				font-size: 0.5em;
+			}
+		}
+	}
+}
+
+#menu{
+	#title.active{
+		a{
+			cursor: default;
+		}
+	}
+}
+
+#header-container{
+	padding: 1em 0 1em 1.25em;
+	@include breakpoint(small-tablet){
+		padding: 1em 2.5em 1em 2.5em;
+	}
+	@include breakpoint(ipad-horiz){
+		padding: 1em 3.75em 1em 3.75em;
+	}
+}
+
+footer{
+	position: relative;
+	background: rgba(255, 255, 255, 0.95);
+	z-index: 10;
+	width: 100%;
+	color: $purple;
+	@include breakpoint(ipad-horiz){
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		height: 30px;
+	}
+	i{
+		color: $purple;
+		@include transition(compact(color .4s ease));
+	}
+	a:hover{
+		i{
+			color: $charcoal;
+			@include transition(compact(color .4s ease));
+		}
+	}
+	@include transition(compact(all .4s ceaser($easeOutQuint)));
+	.copyright{
+		font: 600 0.7em/15px $main-font;
+		clear: both;
+		display: block;
+		margin-top: 2em;
+		@include breakpoint(iphone-horiz){
+			clear: none;
+			float: right;
+			margin: 0;
+		}
+	}
+	ul{
+		padding: 0;
+		margin: 0;
+		li{
+			float: left;
+			list-style: none;
+			line-height: 15px;
+			padding-right: 0.75em;
+		}
+	}
+	#footer-container{
+		padding: 0.5em 1.25em 0.5em 1.25em;
+		@include breakpoint(small-tablet){
+			padding: 0.5em 2.5em 0.5em 2.5em;
+		}
+		@include breakpoint(ipad-horiz){
+			padding: 0.5em 3.75em 0.5em 3.75em;
+		}
+	}
+}
+
+#info-contact{
+	float: right;
+	margin-top: -1.55em;
+	display: none;
+	@include breakpoint(ipad-vert){
+		display: block;
+	}
+	ul{
+		list-style: none;
+		float: right;
+		margin: 0;
+		padding: 0;
+		li{
+			float: left;
+			padding-left: 0.85em;
+			a{
+				font: 700 1em/1 $main-font;
+				text-decoration: none;
+				color: $purple;
+				text-transform: uppercase;
+				@include transition(compact(color .4s ease));
+				@include breakpoint(ipad-horiz){
+					font-size: 1em;
+				}
+				&:hover{
+					color: $charcoal;
+					@include transition(compact(color .4s ease));
+				}
+			}
+		}
+	}
+}
+
+html.touch{
+	.scrollable {
+    	overflow: auto;
+    	overflow-x: hidden;
+    	-webkit-overflow-scrolling: touch;
+	}
+	.scrollable * {
+    	/*-webkit-transform: translate3d(0,0,0);*/
+	}
+	#project-menu{
+		overflow-x: scroll; /* has to be scroll, not auto */
+	}
+}
+
+#project-menu{
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	width: 14em;
+	left: -14em;
+	height: 100%;
+	background-color: $charcoal;
+	@include translate(0, 0);
+	@include transition(compact(all .4s ceaser($easeOutQuint)));
+	@include breakpoint(ipad-horiz){
+		width: 22.375em;
+		left: -22.375em;
+	}
+}
+
+#project-menu{
+	#info-contact-bar-menu{
+		margin: 0;
+		padding: 0;
+		@include breakpoint(ipad-vert){
+			display: none;
+		}
+		li{
+			text-align: center;
+			border-bottom: 1px solid #3C3C3C;
+			a{
+				font: 600 1em/1 $main-font;
+				color: #FFF;
+				padding: 1em;
+				display: block;
+				text-transform: uppercase;
+			}
+		}
+	}
+}
+
+#project-menu{
+	ul{
+		margin: 0;
+		padding: 0;
+		li{
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			width: 100%;
+			a{
+				position: relative;
+				display: block;
+			}
+		}
+	}
+}
+
+nav ul li.active a{
+	cursor: default;
+}
+
+#info-contact ul li.active a:hover{
+	color: $purple;
+}
+
+#project-menu{
+	#nav-thumbnails{
+		li.active{
+			a{
+				.project-info{
+					opacity: 1;
+					background: rgba(255, 255, 255, 0.45);
+					h2, h3{
+						display: none;
+					}
+				}
+				&:hover{
+					.project-info{
+						h2, h3{
+							display: none;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+html.no-touch{
+	#project-menu #info-contact-bar-menu li a{
+		@include transition(all .4s ceaser($easeInOutCirc));
+		&:hover{
+			background-color: $purple;
+			@include transition(all .4s ceaser($easeInOutCirc));
+		}
+	}
+	#project-menu #nav-thumbnails li a{
+		.project-info{
+			@include transition(all .4s ceaser($easeInOutCirc));
+		}
+		&:hover{
+			.project-info{
+				opacity: 1;
+				@include transition(all .4s ceaser($easeInOutCirc));
+			}
+		}
+	}
+	#project-menu{
+		.project-description{
+				padding: 1.5em;
+			@include breakpoint(ipad-horiz){
+				padding: 2em;
+			}
+			h2{
+				font: 700 1.5em/1 $main-font;
+				@include breakpoint(ipad-horiz){
+					font-size: 1.75em;
+				}
+			}
+			.project-type{
+				font: 600 1em/1em $main-font;
+				margin: 0.5em 0;
+				@include breakpoint(ipad-horiz){
+					font-size: 1em;
+					margin: 0.75em 0;
+				}
+			}
+		}
+	}
+}
+
+#project-menu.active{
+	-webkit-backface-visibility: hidden;
+	@include translate(14em, 0);
+	@include transition(compact(all .4s ceaser($easeOutQuint)));
+	@include breakpoint(ipad-horiz){
+ 		@include translate(22.375em, 0);
+ 	}
+}
+
+	.bars.active{
+		background: transparent;
+		&:before, &:after{
+		@include transform-origin(50%, 50%);
+		background: $purple;
+		top: 0;
+		width: -0.88em;
+		user-select: none;
+		}
+		&:before{
+			@include transform(rotate(-45deg));
+		}
+		&:after{
+			@include transform(rotate(45deg));
+		}
+	}
+
+.bars{
+	width: 0.88em;
+	height: 0.125em;
+	background: $purple;
+	position: relative;
+	display: block;
+	margin-top: .3em;
+	@include transition(compact(all .2s ease));
+	&:before{
+		top: -7px;
+	}
+	&:after{
+		top: 7px;
+	}
+	&:before, &:after{
+		width: 0.88em;
+		height: 0.125em;
+		background: $purple;
+		position: absolute;
+		left: 0;
+		content: '';
+		@include transform-origin(center, center);
+		@include transition(compact(all .2s ease));
+	}
+}
+
+.bar-menu{
+	position: absolute;
+	left: 20px;
+	height: 18px;
+	top: 22px;
+	color: $purple;
+	font-size: 1.5em;
+	cursor: pointer;
+	z-index: 999;
+	@include transition(compact(all .4s ceaser($easeOutQuint)));
+	@include translate(0, 0);
+	&:hover{
+		color: $purple;
+	}
+	@include breakpoint(small-tablet){
+		left: 41px;
+	}
+	@include breakpoint(ipad-horiz){
+		left: 61px;
+	}
+}

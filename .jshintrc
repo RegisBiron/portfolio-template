@@ -1,0 +1,12 @@
+{
+  "strict": false,
+  "camelcase": true,
+  "eqeqeq": true,
+  "nonbsp": true,
+  "quotmark": "single",
+  "node": true,
+  "trailing": true,
+  "maxparams": 3,
+  "laxcomma": true,
+  "jquery": true
+}

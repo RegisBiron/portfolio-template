@@ -1,0 +1,57 @@
+.info-page{
+	background-color: $gray;
+	padding-bottom: 3em;
+	@include breakpoint(ipad-horiz){
+	padding-bottom: 7.375em;
+	}
+	h1{
+		padding: 1em 0.5em 0 0.5em;
+		margin-bottom: 1em;
+		@include breakpoint(ipad-horiz){
+		padding: 1.5em 0.5em 0 0.5em;
+		margin-bottom: 1.5em;
+		}
+	}
+	.left, .right{
+		@include breakpoint(ipad-horiz){
+			width: 46%;
+		}
+	}
+	a{
+		color: $charcoal;
+		border-bottom: 1px solid $charcoal;
+		&:hover{
+			color: $purple;
+			border-bottom: 1px solid $purple;
+		}
+	}
+}
+
+.info-image{
+	width: 100%;
+	background-color: $purple;
+	padding-bottom: 62.5%;
+	position: relative;
+	h3{
+		position: absolute;
+		left: 1.75em;
+		bottom: 0.75em;
+		font: 700 0.85em/1 $main-font;
+		color: #FFF;
+		@include breakpoint(ipad-horiz){
+			font-size: 1em;
+		}
+		a{
+			font: 600 1em/1 $main-font;
+			color: #FFF;
+			border-bottom: 1px solid #FFF;
+			@include breakpoint(ipad-horiz){
+				font-size: 1em;
+			}
+			&:hover{
+				color: #FFF;
+				border-bottom: 1px solid #FFF;
+			}
+		}
+	}
+}

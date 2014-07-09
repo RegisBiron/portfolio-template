@@ -1,0 +1,303 @@
+.project-page{
+	background-color: $gray;
+	h1{
+		padding: 1em 0.5em 0 0.5em;
+		margin-bottom: 1em;
+		@include breakpoint(ipad-vert){
+			padding: 1.5em 0.5em 0 0.5em;
+			margin-bottom: 1.5em;
+		}
+	}
+	a{
+		color: $charcoal;
+		border-bottom: 1px solid $charcoal;
+		&:hover{
+			color: $purple;
+			border-bottom: 1px solid $purple;
+		}
+	}
+	.column-left{
+		width: 100%;
+		@include breakpoint(ipad-vert){
+			width: 59.40%;
+			float: left;
+		}
+	}
+	.column-right{
+		width: 100%;
+		@include breakpoint(ipad-vert){
+			width: 40.60%;
+			float: left;
+		}
+	}
+	.column-single{
+		float: left;
+	}
+	.b-loaded{
+		margin-top: -1px;
+	}
+}
+
+header{
+	margin-bottom: 2.5em;
+	@include breakpoint(ipad-vert){
+		margin-bottom: 3em;
+	}
+	@include breakpoint(ipad-horiz){
+		margin-bottom: 6em;
+	}
+}
+
+.row{
+	padding: 0 5.86% 0 5.86%;
+	@include breakpoint(ipad-horiz){
+		width: 69.7%;
+		margin: 0 auto;
+		padding: 0;
+	}
+}
+
+.column{
+	width: 100%;
+	@include breakpoint(ipad-horiz){
+		float: left;
+	}
+}
+
+.column.left{
+	margin-bottom: 1.5em;
+	@include breakpoint(ipad-horiz){
+		width: 50%;
+		float: left;
+		margin: 0;
+	}
+}
+
+.column.right{
+		@include breakpoint(ipad-horiz){
+		float: right;
+		width: 41.30%;
+	}
+}
+
+.next-project{
+	display: none;
+	@include breakpoint(laptop){
+		display: block;
+		font-size: 16px;
+		.preview-next{
+			position: fixed;
+			top: 50%;
+			right: 60px;
+			z-index: 3;
+			margin-top: -150px;
+			opacity: 0;
+			@include translate(460px, 0);
+			@include transition(compact(all .2s ease));
+		}
+	}
+}
+
+html.hover-next-project{
+	.preview-next{
+		@include translate(0, 0);
+		opacity: 1;
+		@include transition(compact(all .3s ease-in-out));
+	}
+}
+
+.next{
+	position: fixed;
+	top: 50%;
+	right: 24px;
+	z-index: 3;
+	@include translate(0, 0);
+	@include transition(compact(all .4s ceaser($easeOutQuint)));
+	i{
+		color: $purple;
+		@include transition(compact(color .4s ease));
+	}
+	&:hover{
+		i{
+			color: $charcoal;
+			@include transition(compact(color .4s ease));
+		}
+	}
+}
+
+html.progress{
+	.content{
+		opacity: 1!important;
+	}
+	.preview-next{
+		opacity: 0!important;
+		@include transition(compact(all .3s ease-in-out));
+	}
+	.preview-previous{
+		opacity: 0!important;
+		@include transition(compact(all .3s ease-in-out));
+	}
+}
+
+.previous-project{
+	display: none;
+	@include breakpoint(laptop){
+		display: block;
+		font-size: 16px;
+		.preview-previous{
+			position: fixed;
+			top: 50%;
+			left: 60px;
+			z-index: 3;
+			margin-top: -150px;
+			opacity: 0;
+			@include translate(-460px, 0);
+			@include transition(compact(all .2s ease));
+		}
+	}
+}
+
+html.hover-previous-project{
+	.preview-previous{
+		@include translate(0, 0);
+		opacity: 1;
+		@include transition(compact(all .3s ease-in-out));
+	}
+}
+
+.previous{
+	position: fixed;
+	top: 50%;
+	left: 24px;
+	z-index: 3;
+	@include translate(0, 0);
+	@include transform(rotate(-180deg));
+	@include transition(compact(all .4s ceaser($easeOutQuint)));
+	i{
+		color: $purple;
+		@include transition(compact(color .4s ease));
+	}
+	&:hover{
+		i{
+			color: $charcoal;
+			@include transition(compact(color .4s ease));
+		}
+	}
+}
+
+.devices{
+	width: 83.03%;
+	margin: 0 auto 0 auto;
+	@include breakpoint(ipad-vert){
+		margin: 0 auto 3em auto;
+	}
+	@include breakpoint(ipad-horiz){
+		margin: 0 auto 5em auto;
+	}
+	text-align: justify;
+	&:after{
+	@include breakpoint(ipad-vert){
+		content: "";
+  		width: 100%;
+  		display: inline-block;
+  		zoom: 1;
+  		*display: inline;
+		}
+	}
+}
+
+.phone-vert{
+	width: 93%;
+	padding: 18% 3.5% 18% 3.5%;
+	@include border-radius(10%, 5%);
+	@include breakpoint(ipad-vert){
+		padding: 7% 1.5% 7% 1.5%;
+	}
+}
+
+.tablet-vert{
+	width: 93%;
+	padding: 12% 3.5% 12% 3.5%;
+	@include border-radius(6%, 4%);
+	@include breakpoint(ipad-vert){
+		padding: 7% 2% 7% 2%;
+	}
+}
+
+.tablet-horiz{
+	width: 93%;
+	padding: 2.5% 8% 2.5% 8%;
+	@include border-radius(4%, 6%);
+	@include breakpoint(ipad-vert){
+		padding: 1.6% 7% 1.6% 7%;
+	}
+}
+
+.tablet-horiz.full{
+	width: 67.03%;
+	margin-left: auto;
+	margin-right: auto;
+	@include breakpoint(ipad-vert){
+		width: 69.03%;
+	}
+}
+
+.tablet-vert.half{
+	@include breakpoint(ipad-vert){
+		width: 59.40%;
+		display: inline-block;
+		vertical-align: middle;
+		margin-bottom: 0;
+	}
+}
+
+.phone-vert.half{
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+	@include breakpoint(ipad-vert){
+		width: 25.60%;
+		display: inline-block;
+		vertical-align: middle;
+		margin-bottom: 0;
+		margin-left: 0;
+		margin-right: 0;
+	}
+}
+
+.tablet-vert, .tablet-horiz, .phone-vert{
+	margin-bottom: 2.5em;
+	@include breakpoint(ipad-vert){
+		margin-bottom: 3em;
+	}
+	@include breakpoint(ipad-horiz){
+		margin-bottom: 5em;
+	}
+}
+
+.tablet-vert.white, .tablet-horiz.white, .phone-vert.white{
+	background: rgba(255, 255, 255, 0.8);
+}
+
+ .tablet-vert.black, .tablet-horiz.black, .phone-vert.black{
+	background: $charcoal;
+}
+
+.browser{
+	width: 83.03%;
+	background: #b5b5b5;
+	padding-top: 2.25%;
+	@include border-corner-radius(top, left, 3px);
+	@include border-corner-radius(top, right, 3px);
+	margin: 0 auto 2.5em auto;
+	@include breakpoint(ipad-vert){
+		margin: 0 auto 3em auto;
+		@include border-corner-radius(top, left, 6px);
+		@include border-corner-radius(top, right, 6px);
+	}
+	@include breakpoint(ipad-horiz){
+		margin: 0 auto 5em auto;
+		@include border-corner-radius(top, left, 8px);
+		@include border-corner-radius(top, right, 8px);
+	}
+}
