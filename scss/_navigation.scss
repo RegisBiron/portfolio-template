@@ -314,7 +314,7 @@ html.no-touch{
 		@include transform-origin(50%, 50%);
 		background: $purple;
 		top: 0;
-		width: -0.88em;
+		width: 100%;
 		user-select: none;
 		}
 		&:before{
@@ -326,7 +326,7 @@ html.no-touch{
 	}
 
 .bars{
-	width: 0.88em;
+	width: 100%;
 	height: 0.125em;
 	background: $purple;
 	position: relative;
@@ -340,7 +340,7 @@ html.no-touch{
 		top: 7px;
 	}
 	&:before, &:after{
-		width: 0.88em;
+		width: 100%;
 		height: 0.125em;
 		background: $purple;
 		position: absolute;
@@ -359,6 +359,7 @@ html.no-touch{
 	color: $purple;
 	font-size: 1.5em;
 	cursor: pointer;
+	width: 0.88em;
 	z-index: 999;
 	@include transition(compact(all .4s ceaser($easeOutQuint)));
 	@include translate(0, 0);
